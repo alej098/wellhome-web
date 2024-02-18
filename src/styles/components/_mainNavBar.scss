@@ -1,0 +1,154 @@
+.navBar {
+    &__container{
+        max-width: $bp-xlarge;
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: fixed;
+        // padding: 0 3rem;
+        top: 0;
+        background-color: $color-allWhite;
+        border-bottom: solid 2px rgba(128, 128, 128, 0.2);
+        z-index: 1000; 
+        // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        &__left{
+            display: flex;
+            align-items: center;
+
+            &__smallLogo{
+                #smallLogo {
+                    max-height: 4rem;
+                    padding: 0.5rem;
+                }
+                #longLogo {
+                    display: none;
+                }
+            }
+        @media screen and (min-width: $bp-medium) {
+            #smallLogo{
+                display: none;  
+            }
+            #longLogo {
+                display: block;
+                max-height: 4rem;
+                padding: 0.5rem;
+            }
+        }    
+
+        }
+        
+        &__right{
+            display: flex;
+            align-items: center;
+
+            &__menuIcon{
+                cursor: pointer;
+                img {
+                    max-height: 4rem;
+                    padding: 0.5rem;
+                }
+
+            }
+
+            &__menu {
+                display: none;
+                
+            }
+
+            &__menu.open{
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 4.1rem; /* Adjust the distance from the top as needed */
+                left: 0;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                width: 100%;
+                border-radius: 0.5rem;
+                background-color: rgba($color-white,0.9);
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+                animation: barrido 0.5s ease-in-out;
+
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    gap: 1rem;
+                    padding: 2rem 0;
+                    align-items: center;
+                    
+                    li{
+                        font-size: $font-big;
+                        font-weight: 900;
+                        color: $color-A;
+                        cursor: pointer;
+                        height: 2rem;
+                        width: 8rem;
+                        :hover{
+                            transform: scale(1.1);
+                            background-color: rgba($color-F,0.7);
+                            font-weight: 500;
+                            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.541);
+                            height: 2rem;
+                            width: 8rem;
+                            border-radius: 5px;
+                            color: $color-allWhite;
+                        }
+
+                    }
+                    #menu1{
+                        @media screen and (max-width: $bp-medium) {
+                            display: none;
+                        }
+                    }    
+                    
+                }
+
+            }
+            @media screen and (min-width: $bp-large) {
+                &__menuIcon,
+                &__menu.open {
+                    display: none;
+                }
+                
+                &__menu{
+                    display: block;
+                    ul {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        height: 2rem;
+
+                        li{
+                            margin-left: 1rem;
+                            margin-right: 1rem;
+                            
+                            &:hover{
+                                transform: scale(1.1);
+                                color: $color-C;
+                                cursor: pointer;
+                            }
+            
+                        }
+                    }
+                    
+
+                }
+            }
+        }
+        
+    }
+}
+
+@keyframes barrido {
+    0% {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

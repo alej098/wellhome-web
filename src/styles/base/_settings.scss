@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Roboto:wght@400;500;600;700&display=swap');
+//Colores
+$color-black: rgb(10, 10, 10);
+$color-midBlack: rgb(25, 25, 25);
+$color-allWhite: white;
+$color-white: #fbfbfb;
+$color-midWhite: #EEEE;
+$color-A: #053b50;
+$color-B: #176B87;
+$color-C: #64CCC5;
+$color-D: rgb(225, 0, 255);
+$color-E: rgb(100, 39, 255);
+$color-F: blue;
+$color-G: #5B71E4;
+$color-G-soft: #5b72e422;
+$color-G-hard: #4658b0;
+$color-I: #DBE8F4;
+$color-error-soft: rgba(255, 0, 0, 0.68);
+$color-error-hard: rgb(255, 0, 0);
+
+// BreakPoints
+$bp-small: 320px;
+$bp-medium: 480px;
+$bp-large: 768px;
+$bp-xlarge: 960px;
+$bp-xxlarge: 1024px;
+$bp-xxxlarge: 1328px;
+
+//Tipografia / Fuentes
+$font-main: 'Poppins', sans-serif;
+$font-secondary: 'Roboto', sans-serif;
+
+$font-xsmall: 0.625em;
+$font-small: 0.75em;
+$font-medium: 0.875em;
+$font-large: 1em;
+$font-big: 1.3em;
+$font-bigger: 2em;
+
+// Animaciones
+
+@mixin animation($name, $duration: 0.5s, $timing-function: ease, $fill-mode: forwards) {
+    animation: $name $duration $timing-function $fill-mode;
+}
+
+@mixin loader {
+    border: 4px solid #dddddd; 
+    border-top: 4px solid #3498db; 
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 1s linear infinite; 
+}
+
+@mixin input_animation {
+    animation: input_animation .6s ease forwards;
+}
+
+@keyframes opacity_appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scale_appear {
+    from {
+        scale: 0;
+    }
+
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes side_move {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes input_animation {
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.05;
+    }
+
+    100% {
+        scale: 1;
+    }
+}

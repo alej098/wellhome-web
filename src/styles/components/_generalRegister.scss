@@ -1,0 +1,327 @@
+.userRegister_mainView {
+    width: 100%;
+    min-height: 100%;
+    padding: 0 15px 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userRegister_section1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div {
+        img {
+            margin: 0 auto;
+            width: 130px;
+        }
+    }
+
+    p:nth-child(2) {
+        padding: 0 30px;
+        font-size: 18px;
+    }
+}
+
+.userRegister_section2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 60px 0;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        p {
+            font-size: 15px;
+            margin: 0 auto 5px auto;
+        }
+
+        button {
+            padding: 30px;
+            border: 2px solid $color-G;
+            border-radius: 5px;
+            opacity: .3;
+            cursor: pointer;
+
+            img {
+                width: 100px;
+
+                @media screen and (max-width: $bp-large) {
+                    width: 70px;
+                }
+            }
+        }
+    }
+
+    #div_off {
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    #register_selected_option {
+        background-color: $color-G-soft;
+        border: 2px solid $color-G;
+        opacity: 1;
+    }
+}
+
+.userRegister_section3 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    // margin-top: 80px;
+    margin-bottom: 20px;
+
+    .button_not_allowed {
+        cursor: not-allowed;
+        opacity: .5;
+
+        &:hover {
+            background-color: $color-G;
+        }
+    }
+
+    button {
+        width: 120px;
+        background-color: $color-G;
+        padding: 12px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-G-hard;
+        }
+
+        p {
+            font-size: 15px;
+            color: white;
+        }
+
+        i {
+            font-size: 15px;
+            color: white;
+        }
+    }
+}
+
+.scale_hidden_element {
+    scale: 0;
+}
+
+
+
+
+
+
+
+
+/* INPUT TOKEN REGISTER */
+
+.userRegister_inputToken {
+    height: 60px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px;
+    border: 2px solid $color-G-hard;
+    border-radius: 5px;
+    font-size: 20px;
+    padding-left: 10px;
+
+    &::placeholder {
+        opacity: .6;
+    }
+}
+
+.input_animation {
+    @include input_animation;
+}
+
+.register_invalid_token {
+    color: red;
+}
+
+#userRegister_access_granted {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 50px;
+        margin: 30px 0 10px 0;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+
+        img {
+            width: 25px;
+            margin: 0;
+        }
+    }
+}
+
+.userRegister_loadingToken {
+    height: 60px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px;
+    font-size: 20px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #loading_text {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 10px;
+        font-size: 15px;
+    }
+}
+
+.userRegister_token_description {
+    margin: 20px 0;
+    padding: 0 30px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+
+/* RESIDENT REGISTER */
+
+.residentRegister__form {
+    margin: 20px 0 100px 0;
+    width: 100%;
+    max-width: 400px;
+
+    .errors {
+        margin-bottom: 2px;
+        font-size: 12px;
+        color: $color-error-soft;
+    }
+
+    .register__inputBox {
+        margin: 15px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        label {
+            margin-bottom: 2px;
+            font-size: 13px;
+        }
+
+        input {
+            height: 40px;
+            width: 100%;
+            padding-left: 10px;
+            background-color: $color-midWhite;
+        }
+
+        li {
+            list-style: disc;
+        }
+
+        .errorInput {
+            border: 1px solid red;
+        }
+
+        #password_ok {
+            color: green;
+            opacity: .5;
+        }
+    }
+
+    .register__select {
+        margin: 15px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        // height: 100px;
+
+        select {
+            margin: 0;
+            font-size: 13px;
+        }
+
+        input {
+            height: 40px;
+            width: 100%;
+            padding-left: 10px;
+            background-color: $color-midWhite;
+        }
+
+        .errorInput {
+            border: 1px solid red;
+        }
+    }
+
+    .register__checkBox {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+
+        label {
+            text-align: left;
+            font-size: 12px;
+        }
+
+        input {
+            cursor: pointer;
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .reCaptcha {
+        margin-top: 40px;
+    }
+}
+
+
+
+
+
+
+
+
+/* ANIMATIONS */
+
+.register_opacity_appear {
+    @include animation(opacity_appear, 0.5s, ease, forwards);
+}
+
+.register_scale_appear {
+    @include animation(scale_appear, 0.5s, ease, forwards);
+}
+
+.register_side_appear {
+    @include animation(side_move, 0.5s, ease, forwards);
+}
+
+.register_loader {
+    @include loader;
+}

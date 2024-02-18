@@ -1,0 +1,49 @@
+
+.landing{
+    &__container{
+        @extend %views-container;
+       
+    }  
+  
+    &__logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        img {
+            max-width: 290px;
+            @media screen and (min-width: $bp-medium) {
+                max-width: 400px;
+              }
+          
+              @media screen and (min-width: $bp-large) {
+                max-width: 550px;
+              }
+        }
+        
+    }
+
+    &__title,
+    &__description {
+      padding: 0.5rem;
+      background-color: white;
+    }
+
+    &__buttons{
+        @extend %actionButton-container;
+    }
+
+    &__footer{
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        font-size: $font-small;
+    }
+}
+
+
+.button__navigate{
+    @extend %actionButton
+}

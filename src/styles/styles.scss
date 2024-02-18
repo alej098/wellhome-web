@@ -1,0 +1,28 @@
+//UI Settings
+@import './base/settings';
+@import './base/index';
+
+@import'./base/placeholder';
+
+//Components
+@import './components/loginForm';
+@import './components/contactForm';
+@import './components/mainNavBar';
+@import './components/mainFooter';
+@import './components/register';
+@import './components/generalRegister';
+
+
+// Views
+@import './views/app';
+@import './views/landing';
+@import './views/mainHome';
+
+
+/*Convención de orden de estilos
+1. Posicionamiento
+2. Modelo de caja
+3. Tipografia
+4. Visuales
+5. Otros*/
+/*Variables Principales*/

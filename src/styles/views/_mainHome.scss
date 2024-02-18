@@ -1,0 +1,124 @@
+.mainHome{
+    &__container{
+        @extend %views-container;
+        
+    }
+
+    &__inicio{
+        @extend %mainHome-sections;
+
+        &-title{
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        &-description{
+            @extend %mainHome-sections-detail;
+        }
+        &-benefits{
+            @extend %mainHome-section-list;
+
+            .benefits{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 1rem;
+
+                &__icon{
+                    width: 3rem;
+                }
+                
+            }
+        }
+    }
+
+    &__about{
+        @extend %mainHome-sections;
+        
+        &-mainDescription,
+        &-secondaryDescription{
+            @extend %mainHome-sections-detail;
+        }
+
+        &-benefits{
+            @extend %mainHome-section-list;
+
+            .benefits{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 1rem;
+
+                &__icon{
+                    width: 3rem;
+                }
+                p{
+                    color: $color-F;
+                }
+                
+            }
+        }
+    }
+
+    &__pricing{
+        @extend %mainHome-sections;
+
+        &-title,
+        &-description{
+            @extend %mainHome-sections-detail;
+        }
+
+        &-tableContainer{
+            @extend %mainHome-section-list;
+            table {
+                width: 100%;
+                border-collapse: collapse;
+
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 0.5rem;
+                    text-align: left;
+                }
+
+                th {
+                    background-color: $color-E;
+                    color: $color-white;
+                    font-size: $font-medium;
+                }
+            }
+            
+        }
+        &-button{
+            @extend %actionButton-container;
+
+            button{
+                @extend %actionButton;
+            }
+        }
+    }
+
+    &__faqs{
+        @extend %mainHome-sections-detail;
+        height: 100vh;
+        padding: 1rem;
+
+        .faq{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: solid;
+            border-width: 2px;
+            background-color: $color-allWhite;
+            border-color: $color-B;
+
+            :hover{
+                scale: 1.05;
+            }
+
+            p{
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+    }
+
+}

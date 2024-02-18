@@ -1,0 +1,114 @@
+.contactForm{
+    &__container{
+        @extend %forms-container;
+        background-color: rgba($color-midWhite, 1);
+        text-align: left;
+        color: $color-A;
+        margin-bottom: 0.5rem;
+
+        &__inputGroup{
+            text-align: left;
+            font-size: $font-medium;
+
+            label{
+                width: 12rem;
+            }
+
+            input,
+            textarea{
+                background-color: $color-white;
+                border: solid;
+                border-width: 1px;
+                border-radius: 0.5rem;
+                border-color: $color-midWhite;
+                margin-bottom: 1rem;
+                width: 100%;
+                label {
+                    position: relative;
+                    padding-left: 30px; /* Espacio para el casillero personalizado */
+                
+                    input[type="checkbox"] {
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      appearance: none;
+                      width: 20px;
+                      height: 20px;
+                      border: 2px solid #333; /* Borde del casillero */
+                      background-color: #fff; /* Fondo del casillero */
+                      cursor: pointer;
+                
+                      &:checked {
+                        background-color: #4CAF50; /* Cambia el fondo cuando está marcado */
+                      }
+                
+                      /* Estilos para el "check" dentro del casillero */
+                      &:checked:after {
+                        content: '\2713'; /* Símbolo de checkmark Unicode */
+                        display: block;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        color: #fff; /* Color del checkmark */
+                      }
+                    }
+                  }
+            }
+
+            input{
+                height: 2rem;
+            }
+            textarea{
+                height: 8rem;
+            }
+    
+        }
+
+        &__check{
+            font-size: $font-small;
+            margin-bottom: 0.5rem;
+            label {
+                position: relative;
+                padding-left: 30px; 
+            
+                input[type="checkbox"] {
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  appearance: none;
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid #333; 
+                  background-color: $color-white; 
+                  cursor: pointer;
+            
+                  &:checked {
+                    background-color: $color-C;
+                  }
+            
+                  &:checked:after {
+                    content: '\2713'; /* Símbolo de checkmark Unicode */
+                    display: block;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    color: $color-white; 
+                  }
+                }
+              }
+        }
+
+        &__submit{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            button{
+                @extend %submitButton;
+            }
+        }
+    }
+
+}

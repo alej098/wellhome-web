@@ -1,0 +1,38 @@
+.app_container {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: $color-white;
+    // height: 100vh;
+    text-align: center;
+    color: $color-A;
+}
+h1 {
+    font-size: $font-bigger;
+    font-weight: 700;
+    color: $color-A;
+}
+h2 {
+    font-size: $font-big;
+    font-weight: 500;
+    color: $color-C;
+}
+h3 {
+    font-size: $font-large;
+    font-weight: 500;
+    color: $color-B;
+}
+p {
+    font-size: $font-medium;
+    font-weight: 500;
+    color: $color-A;
+}
+
+/*Convención de orden de estilos
+1. Posicionamiento
+2. Modelo de caja
+3. Tipografia
+4. Visuales
+5. Otros*/
+/*Variables Principales*/

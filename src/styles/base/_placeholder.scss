@@ -1,0 +1,92 @@
+%views-container{
+    max-width: $bp-xlarge;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+%forms-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    border: solid;
+    border-width: 1px;
+    border-radius: 1rem;
+    border-color: $color-midWhite;
+    text-align: center;
+}
+
+%mainHome-sections{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 6rem;
+    height: 100vh;
+}
+
+%mainHome-sections-detail{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+%mainHome-section-list{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: $color-allWhite;
+    text-align: left;
+}
+
+%actionButton-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 1rem;
+}
+
+%actionButton{
+    background-color:$color-F;
+    color: $color-allWhite;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1.5rem;
+    width: 12rem;
+    font-size: $font-medium;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+    transition: box-shadow 0.3s ease; 
+
+    &:hover {
+        transform: scale(1.1);
+        background-color:$color-E;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+      }
+}
+
+%submitButton{
+    background-color: $color-F;
+    color: $color-allWhite;
+    font-size: $font-medium;
+    display: block;
+    width: 16rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+    transition: box-shadow 0.3s ease; 
+        
+    &:hover {
+        transform: scale(1.05);
+        background-color:$color-E;
+        color: #fff;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+}
