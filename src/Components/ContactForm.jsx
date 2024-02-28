@@ -160,6 +160,7 @@ const ContactForm = () => {
 
           <label htmlFor="country">País:</label>
           <Select
+            className="country"
             id="country"
             options={options}
             onChange={handleCountryChange}
@@ -171,7 +172,7 @@ const ContactForm = () => {
           <label htmlFor="number"></label>
           <div className="contactForm__container__NumContainer">
             <input
-              className="country"
+              className="phone"
               type="tel"
               id="celular"
               name="celular"
@@ -184,6 +185,7 @@ const ContactForm = () => {
           </div>
           <label htmlFor="subject">Asunto:</label>
           <Select
+            className="subject"
             id="subject"
             options={optionssubject}
             onChange={handleSubjectChange}
