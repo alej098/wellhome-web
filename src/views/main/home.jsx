@@ -13,6 +13,30 @@ import {
   FcCommandLine,
   FcMindMap,
 } from "react-icons/fc";
+import Faqs from "../../Components/Register/Components/Faqs";
+
+const faqs = [
+  {
+    question: `✅¿Qué es una "Unidad"?`,
+    answer: `🖇️Una "unidad" hace referencia a un bien o una propiedad, en el caso
+  de un condominio o residencial, sería una vivienda, en el caso de de
+  un centro comercial, sería un local o comercio. Una unidad es un
+  bien inmueble legalmente independizado.{" "}`,
+  },
+  {
+    question: `✅¿Cualquier persona puede registrarse?`,
+    answer: `🖇️Los registros pueden realizarse mediante invitaciones o
+            directamente desde nuestro aplicativo, para cualquiera de los casos,
+            el administrador de cada condominio debe validar y aceptar al
+            usuario.`,
+  },
+  {
+    question: `✅¿Existe un límite de usuarios?`,
+    answer: `🖇️El aplicativo permite registrar un Propietario y un Inquilino por
+            unidad, empleados y personal administrativo según la organización
+            interna de cada condominio.`,
+  },
+];
 
 const Home = () => {
   return (
@@ -156,39 +180,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="mainHome__faqs" id="mainHome-faqs">
-        <div className="faq">
-          <h3>✅¿Qué es una "Unidad"?</h3>
-
-          <p>
-            🖇️Una "unidad" hace referencia a un bien o una propiedad, en el caso
-            de un condominio o residencial, sería una vivienda, en el caso de de
-            un centro comercial, sería un local o comercio. Una unidad es un
-            bien inmueble legalmente independizado.{" "}
-          </p>
-        </div>
-
-        <div className="faq">
-          <h3>✅¿Cualquier persona puede registrarse?</h3>
-
-          <p>
-            🖇️Los registros pueden realizarse mediante invitaciones o
-            directamente desde nuestro aplicativo, para cualquiera de los casos,
-            el administrador de cada condominio debe validar y aceptar al
-            usuario.
-          </p>
-        </div>
-
-        <div className="faq">
-          <h3>✅¿Existe un límite de usuarios?</h3>
-
-          <p>
-            🖇️El aplicativo permite registrar un Propietario y un Inquilino por
-            unidad, empleados y personal administrativo según la organización
-            interna de cada condominio.
-          </p>
-        </div>
-      </div>
+      <Faqs faqs={faqs} />
 
       <div id="main_footer">
         <Main_Footer />
