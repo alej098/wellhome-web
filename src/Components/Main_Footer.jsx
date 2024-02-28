@@ -1,4 +1,3 @@
-import React from "react";
 import ContactForm from "./ContactForm";
 import wellHomeRounded from "../assets/WellHomeLogo07.svg";
 import { Link as ScrollLink } from "react-scroll";
@@ -62,7 +61,9 @@ const Main_Footer = () => {
                 </ScrollLink>
               </li>
 
-              <li>Equipo de desarrollo</li>
+              <li>
+                <a href="/devs">Equipo de desarrollo</a>
+              </li>
             </ul>
           </div>
           <div className="mainFooter__container__section__1__logo">
