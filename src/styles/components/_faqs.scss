@@ -1,0 +1,32 @@
+.mainHome {
+    &__faqs {
+        @extend %mainHome-sections-detail;
+        height: auto;
+        padding: 2rem 1rem 4rem 1rem ;
+
+        .mainHome__faq {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+
+            .mainHome__faqs__header {
+                display: flex;
+                justify-content: space-between; /* Align items to the start and end */
+                align-items: center; /* Align items vertically */
+         
+         svg{
+            width: auto
+         }
+            }
+
+            .mainHome__faqs__question {
+                flex: 1; /* Allow question to take up remaining space */
+            }
+
+            .mainHome__faqs__answer {
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+                border-top: solid;
+            }
+        }
+    }
+}
