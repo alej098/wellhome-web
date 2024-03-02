@@ -1,11 +1,17 @@
-.mainHome{
-    &__container{
+.mainHome {
+    &__container {
         @extend %views-container;
+
+        @media screen and (max-width: $bp-medium) {
+            padding-left: 4rem; /* Restablece el padding izquierdo para pantallas más grandes que 320px */
+        }
         
     }
 
+
     &__inicio{
         @extend %mainHome-sections;
+
 
         &-title{
             margin-bottom: 1rem;
@@ -25,7 +31,12 @@
 
                 &__icon{
                     width: 3rem;
+                    
                 }
+                p{
+                    color: $color-A;
+                }
+                
                 
             }
         }
@@ -50,9 +61,10 @@
 
                 &__icon{
                     width: 3rem;
+                    
                 }
                 p{
-                    color: $color-F;
+                    color: $color-A;
                 }
                 
             }

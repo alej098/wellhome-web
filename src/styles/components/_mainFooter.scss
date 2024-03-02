@@ -3,12 +3,15 @@
         max-width: $bp-xlarge;
         width: 100%;
         padding: 0.5rem;
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem; 
+        border-radius: 0.8rem;
         background-color: $color-A;
-        color: $color-allWhite;
         display: flex;
         flex-direction: column;
+
+        a{
+            color: $color-allWhite;
+        }
+        
         p{
             color: $color-allWhite;
             font-size: $font-xsmall;
@@ -37,18 +40,28 @@
                     flex: 1;
 
                     h3{
+                        text-align: center;
+                        margin-bottom: 0.5rem;
                         color:$color-C;
                     }
 
                     li{
+                        text-align: center;
                         &:hover{
-                            transform: scale(1.1);
+                            transform: scale(1.2);
                             color: $color-allWhite;
-                            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+                            // box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+                            text-align: center;
+                            cursor: pointer;
                         }
                     }
                         
                     &__logo{
+                        padding-top: 0.5rem;
+                        display: flex;
+                        justify-content: center; 
+                        align-items: center;
+                        
                         img{
                             max-width: 10rem;
                         }
@@ -58,6 +71,7 @@
                 &__2{
                     flex: 1;
                     flex-basis: 40%;
+
                 }
             }
                 
