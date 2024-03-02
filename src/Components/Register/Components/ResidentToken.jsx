@@ -5,7 +5,7 @@ import rent from '../../../assets/icons/alquilar.png'
 import owner from '../../../assets/icons/dueno.png'
 import check from '../../../assets/icons/marca-de-verificacion.png'
 
-function ResidentToken({ setCurrentPage, setPrevPage, prevPage }) {
+function ResidentToken({ currentPage, setCurrentPage, setPrevPage, prevPage }) {
     const token_prueba = 'ABC123-DEF456-GHI789';
     const place = {
         place: 'Edificio Montemar',
@@ -31,7 +31,11 @@ function ResidentToken({ setCurrentPage, setPrevPage, prevPage }) {
         if (tokenInput && tokenInput.trim().length) {
             setLoading(true);
             setTimeout(() => {
-                if (tokenInput === token_prueba) {
+                /* if (tokenInput === token_prueba) {
+                    setAccess(true);
+                    setInvalidToken(false);
+                } */
+                if (tokenInput) {
                     setAccess(true);
                     setInvalidToken(false);
                 }
@@ -60,6 +64,7 @@ function ResidentToken({ setCurrentPage, setPrevPage, prevPage }) {
         else {
             setCurrentPage(userType);
         }
+        setPrevPage(currentPage);
     }
 
     function prev_page() {
@@ -115,13 +120,13 @@ function ResidentToken({ setCurrentPage, setPrevPage, prevPage }) {
                 <section className='userRegister_section2'>
                     <div className='register_scale_appear'>
                         <p>Inquilino</p>
-                        <button onClick={handle_usertype} name='inquilino' id={`${userType === 'inquilino' ? 'register_selected_option' : 'div_off'}`}>
+                        <button onClick={handle_usertype} name='inquilino' className={`${userType === 'inquilino' ? 'register_selected_option' : 'div_off'}`}>
                             <img name='inquilino' src={rent} alt="" />
                         </button>
                     </div>
                     <div className='register_scale_appear'>
                         <p>Propietario</p>
-                        <button onClick={handle_usertype} name='propietario' id={`${userType === 'propietario' ? 'register_selected_option' : 'div_off'}`}>
+                        <button onClick={handle_usertype} name='propietario' className={`${userType === 'propietario' ? 'register_selected_option' : 'div_off'}`}>
                             <img name='propietario' src={owner} alt="" />
                         </button>
                     </div>

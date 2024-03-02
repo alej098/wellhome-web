@@ -3,8 +3,10 @@ import ReCAPTCHA from "react-google-recaptcha";
 import logo from '../../../assets/icons/WellHomeLogo01.svg'
 import { formValidation } from './formValidation'
 
-function ResidentRegister({ setCurrentPage, currentPage, setPrevPage }) {
+function ResidentRegister({ setCurrentPage, currentPage, setPrevPage, prevPage }) {
+    const [isACondominiumOwner, setIsACondominiumOwner] = useState(currentPage === 'owner_inquilino' || currentPage === 'owner_propietario');
     const [captchaValue, setCaptchaValue] = useState(null);
+    const [form_completed, setForm_completed] = useState(false);
     const [errors, setErrors] = useState({
         name: '',
         lastname: '',
@@ -13,7 +15,7 @@ function ResidentRegister({ setCurrentPage, currentPage, setPrevPage }) {
         email: '',
         password: '',
         repeat_password: '',
-        checkbox_confirm: false
+        checkbox_confirm: isACondominiumOwner
     });
     const [passwordValidation, setPasswordValidation] = useState({
         largo: false,
@@ -28,9 +30,8 @@ function ResidentRegister({ setCurrentPage, currentPage, setPrevPage }) {
         email: '',
         password: '',
         repeat_password: '',
-        checkbox_confirm: false
+        checkbox_confirm: isACondominiumOwner
     });
-    const [form_completed, setForm_completed] = useState(false);
 
     function input_change(e) {
         const id = e.target.id;
@@ -76,10 +77,11 @@ function ResidentRegister({ setCurrentPage, currentPage, setPrevPage }) {
                 alert('Por favor, resuelve el Captcha.');
             }
         }
+        setPrevPage(currentPage);
     }
 
     function prev_page() {
-        setCurrentPage('token_page');
+        setCurrentPage(prevPage);
         setPrevPage(currentPage);
     }
 
@@ -137,10 +139,12 @@ function ResidentRegister({ setCurrentPage, currentPage, setPrevPage }) {
                     <input onChange={input_change} id="repeat_password" type="password" autocomplete="off" />
                     {errors.repeat_password && <p className='errors'>{errors.repeat_password}</p>}
                 </div>
-                <div className="register__checkBox">
-                    <input onChange={input_change} id="checkbox_confirm" type="checkbox" name="miCheckbox" />
-                    <label for="miCheckbox">{`Confirmo que soy ${currentPage} de la vivienda`}</label>
-                </div>
+                {!isACondominiumOwner &&
+                    <div className="register__checkBox">
+                        <input onChange={input_change} id="checkbox_confirm" type="checkbox" name="miCheckbox" />
+                        <label for="miCheckbox">{`Confirmo que soy ${currentPage} de la vivienda`}</label>
+                    </div>
+                }
                 <div className='reCaptcha'>
                     <ReCAPTCHA
                         sitekey="6Lc_ynApAAAAAPLNrHIT4L2Bz4cNNU9jnp4SYCSr"

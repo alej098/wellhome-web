@@ -59,3 +59,16 @@ export function password_validation(password) {
     }
     return password_regex;
 }
+
+export function validationCondo(params) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const errors = {
+        name: params?.name?.trim().length > 0,
+        country: params?.country,
+        state: params?.state?.trim().length > 0,
+        district: params?.district?.trim().length > 0,
+        city: params?.city?.trim().length > 0,
+        phone: params?.phone?.trim().length > 0,
+    }
+    return errors;
+}

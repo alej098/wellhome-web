@@ -11,9 +11,11 @@
 @import './components/mainFooter';
 @import './components/register';
 @import './components/generalRegister';
+@import './components/faqs';
 
 
 // Views
+@import "./views/developers";
 @import './views/app';
 @import './views/landing';
 @import './views/mainHome';

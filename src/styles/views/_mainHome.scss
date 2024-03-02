@@ -96,29 +96,29 @@
         }
     }
 
-    &__faqs{
-        @extend %mainHome-sections-detail;
-        height: 100vh;
-        padding: 1rem;
+    // &__faqs{
+    //     @extend %mainHome-sections-detail;
+    //     height: 100vh;
+    //     padding: 1rem;
 
-        .faq{
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            border-bottom: solid;
-            border-width: 2px;
-            background-color: $color-allWhite;
-            border-color: $color-B;
+    //     .faq{
+    //         margin-top: 1rem;
+    //         margin-bottom: 1rem;
+    //         border-bottom: solid;
+    //         border-width: 2px;
+    //         background-color: $color-allWhite;
+    //         border-color: $color-B;
 
-            :hover{
-                scale: 1.05;
-            }
+    //         :hover{
+    //             scale: 1.05;
+    //         }
 
-            p{
-                margin-top: 1rem;
-                margin-bottom: 2rem;
-            }
-        }
+    //         p{
+    //             margin-top: 1rem;
+    //             margin-bottom: 2rem;
+    //         }
+    //     }
 
-    }
+    // }
 
 }

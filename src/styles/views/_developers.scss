@@ -1,0 +1,120 @@
+.dev_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; 
+}
+.dev_card {
+    width: 450px;
+    display: flex;
+    background-color:#fff;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.dev_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.dev_name{
+    color: #000;
+    font-weight: 500;
+}
+.dev_role{
+    color: #4b4b4b;
+    font-weight: 400;
+}
+.dev_title{
+    font-size: 3rem;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    width: 100%;
+}
+.flex_title{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dev_img{
+    position: relative;
+    width: 12rem;
+    height:12rem;
+    filter: grayscale(100%);
+    z-index: 10;
+    object-fit: cover;
+}
+.dev_img:hover{
+    filter: grayscale(0%);
+}
+.yellow{
+    position: absolute;
+    width: 12rem;
+    height:12rem;
+    background-color: #fbdc13;
+    z-index: 1;
+}
+.blue{
+    position: absolute;
+    width: 12rem;
+    height:12rem;
+    background-color: #4076b5;
+    z-index: 1;
+}
+.green{
+    position: absolute;
+    width: 12rem;
+    height:12rem;
+    background-color: #3c9075;
+    z-index: 1;
+}
+.red{
+    position: absolute;
+    width: 12rem;
+    height:12rem;
+    background-color: #aa3c3c;
+    z-index: 1;
+}
+.violet{
+    position: absolute;
+    width: 12rem;
+    height:12rem;
+    background-color: #4b264b;
+    z-index: 1;
+}
+.dev_links{
+    display: flex;
+    gap: 10px;
+}
+.dev_wellhome{
+    color: blue;
+}
+.linkedin{
+    filter: grayscale(100%);
+}
+.linkedin:hover{
+    filter: grayscale(0%);
+}
+.github{
+    filter: grayscale(100%);
+}
+.github:hover{
+    filter: grayscale(0%);
+}
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    }
+}
+
+@media (max-width: 576px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    }
+}
