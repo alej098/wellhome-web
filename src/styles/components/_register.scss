@@ -1,10 +1,10 @@
 .register__mainDiv {
-    position: fixed;
+    /* position: fixed;
     top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.262);
-    // background-color: $color-white;
-    width: 100%;
+    left: 0; */
+    // background-color: rgba(0, 0, 0, 0.311);
+    background-color: $color-white;
+    width: 100vw;
     height: 100%;
     display: flex;
     align-items: center;
@@ -16,11 +16,8 @@
     background-color: $color-white;
     width: 90%;
     max-width: 500px;
-    max-height: 600px;
+    // height: 600px;
     overflow: hidden;
-    border-radius: 0.5rem;
-    margin-top: 4rem;
-    overflow: auto;
 
     .userRegister_close_icon {
         z-index: 400;
@@ -41,9 +38,8 @@
     }
 }
 
-// .register__subMainDiv2 {
-//     // width: 100%;
-//     // height: 100%;
-//     background-color: black;
-//     overflow-y: scroll;
-// }
+.register__subMainDiv2 {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
