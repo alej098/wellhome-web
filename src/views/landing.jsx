@@ -45,7 +45,7 @@ function Landing() {
         <div onClick={display_modal} className="login__title">
           <p>
             ¿Ya tienes una cuenta o deseas 
-            <a onClick={display_modal} href="#">
+            <a onClick={display_modal}>
               {" "} registrarte
             </a>
             ?
