@@ -1,7 +1,7 @@
 .mainHome {
     &__faqs {
         @extend %mainHome-sections-detail;
-        height: auto;
+        height: 100%;
         padding: 2rem 1rem 4rem 1rem ;
 
         .mainHome__faq {
@@ -14,12 +14,20 @@
                 align-items: center; /* Align items vertically */
          
          svg{
-            width: auto
+            width: auto;
+            transition: transform 0.5s ease; 
          }
+        
+        .rotate {
+            transform: rotate(180deg); // Rotar 180 grados al tener la clase 'rotate'
+        }
             }
+
+            
 
             .mainHome__faqs__question {
                 flex: 1; /* Allow question to take up remaining space */
+
             }
 
             .mainHome__faqs__answer {

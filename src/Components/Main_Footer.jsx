@@ -1,7 +1,22 @@
+import React, { useState } from "react";
 import ContactForm from "./ContactForm";
 import wellHomeRounded from "../assets/WellHomeLogo07.svg";
 import { Link as ScrollLink } from "react-scroll";
+import Register from "./Register/Register";
+import Login from "./Login";
+
 const Main_Footer = () => {
+  const [registerModal, setRegisterModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+
+  const display_modalRegister = () => {
+    setRegisterModal(true);
+  };
+
+  const display_modalLogin = () => {
+    setLoginModal(true);
+  };
+
   return (
     <div className="mainFooter__container">
       <div className="mainFooter__container__section">
@@ -10,10 +25,10 @@ const Main_Footer = () => {
             <h3>¿Ya tienes una cuenta o quieres resgistrarte?</h3>
             <ul>
               <li>
-                <a href="/">Login</a>
+                <a onClick={display_modalLogin}>Ingresar</a>
               </li>
               <li>
-                <a href="/">Regìstrate</a>
+                <a onClick={display_modalRegister}>Registrarse</a>
               </li>
             </ul>
           </div>
@@ -79,6 +94,14 @@ const Main_Footer = () => {
         <p>©️ WellHome Copyright 2024</p>
         <p>Desarrollado por Castrum Gestión y Servicios SAC</p>
       </div>
+      {registerModal && <Register setRegisterModal={setRegisterModal} />}
+      {loginModal && (
+        <div className="login__popup">
+          <div>
+            <Login setLoginModal={setLoginModal} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
