@@ -17,7 +17,7 @@ const Faqs = ({ faqs }) => {
           <div className="mainHome__faq" key={index} onClick={() => toggleAnswer(index)}>
             <div className="mainHome__faqs__header">
               <h3 className="mainHome__faqs__question">{faq.question}</h3>
-              <FontAwesomeIcon icon={faChevronDown} rotation={openIndex === index ? 180 : 0} />
+              <FontAwesomeIcon className="faChevronDown" icon={faChevronDown} rotation={openIndex === index ? 180 : 0} />
             </div>
             {openIndex === index && <p className="mainHome__faqs__answer"><br/>{faq.answer}</p>}
           </div>
