@@ -14,12 +14,9 @@
                 align-items: center; /* Align items vertically */
          
          svg{
-            width: auto
+            width: auto;
+            transition: transform 0.5s ease; 
          }
-
-         .faChevronDown {
-            transition: transform 0.5s ease; // Agregar transición
-        }
         
         .rotate {
             transform: rotate(180deg); // Rotar 180 grados al tener la clase 'rotate'
