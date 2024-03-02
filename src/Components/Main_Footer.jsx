@@ -77,9 +77,7 @@ const Main_Footer = () => {
               </li>
 
               <li>
-                  <a href="/">
-                    Equipo de desarrollo
-                    </a>
+                <a href="/devs">Equipo de desarrollo</a>
               </li>
             </ul>
           </div>
