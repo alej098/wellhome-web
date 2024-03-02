@@ -4,9 +4,14 @@
     background-color: rgba($color-midWhite, 1);
     text-align: left;
     color: $color-A;
-    margin: 1.5rem;
+    margin: 0.9rem;
     padding: 1.5rem;
-    
+    border-radius: 0.8rem;
+
+    @media screen and (min-width: $bp-large) {
+      margin: 1.5rem;
+    }
+
     &__inputGroup{
       text-align: left;
       font-size: $font-medium;
@@ -33,6 +38,9 @@
         border-color: $color-midWhite;
         margin-bottom: 1rem;
         width: 100%;
+        padding-left: 0.5rem;
+        padding-top: 0.5rem;
+
         label {
           position: relative;
           padding-left: 30px; /* Espacio para el casillero personalizado */
@@ -70,6 +78,9 @@
             input{
                 height: 2rem;
                 border-radius: 0.3rem;
+                padding-left: 0.5rem;
+                padding-top: 0.1rem;
+
             }
             textarea{
                 height: 8rem;
@@ -115,8 +126,9 @@
           display: flex;
           margin: 0;
           padding: 0;
-          .country{
-            width: 10%;
+          .phone{
+            width: 15%;
+            padding: 0 auto;
           }
           .number[type=number]::-webkit-inner-spin-button, 
           .number[type=number]::-webkit-outer-spin-button {
@@ -134,6 +146,18 @@
           
           button{
             @extend %submitButton;
+
+            &[disabled] {
+              opacity: 0.5; /* Set opacity to 50% when button is disabled */
+              cursor: not-allowed; /* Change cursor to indicate button is not clickable */
+            }
+            
+            &[disabled]:hover {
+              /* Remove hover effect when button is disabled */
+              background-color: inherit;
+              box-shadow: none;
+              color: inherit;
+            }
           }
         }
     }

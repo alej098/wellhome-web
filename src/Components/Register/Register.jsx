@@ -13,7 +13,7 @@ function Register({ setRegisterModal }) {
     const navigate = useNavigate();
 
     function close_modal() {
-        navigate('/');
+        setRegisterModal(false);
     }
 
     return (

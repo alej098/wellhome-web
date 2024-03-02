@@ -100,6 +100,11 @@ const ContactForm = () => {
     }
   };
 
+  const isFormComplete = () => {
+    const { nombre, apellidos, correo, celular, mensaje, aceptoContacto } = formData;
+    return nombre && apellidos && correo && celular && mensaje && aceptoContacto;
+  };
+
   const handleCountryChange = (selectedOption) => {
     const selectedCountry = selectedOption ? selectedOption.value : "";
     const selectedCountryData = options.find(
@@ -214,7 +219,7 @@ const ContactForm = () => {
         </div>
 
         <div className="contactForm__container__submit">
-          <button type="submit" disabled={!formData.aceptoContacto}>
+          <button type="submit" disabled={!formData.aceptoContacto && !isFormComplete()}>
             Enviar
           </button>
         </div>
