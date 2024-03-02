@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import WellHomeLogo from "../assets/WellHomeLogo04.svg";
 import Login from "../Components/Login";
-import Register from "../Components/Register/Register";
 
 function Landing() {
-  const [registerModal, setRegisterModal] = useState(false);
+  const navigate = useNavigate();
 
-    function display_modal(params) {
-      setRegisterModal(true);
-    }
+  function display_modal(params) {
+    navigate('/register');
+  }
 
   const handleLoad = () => {
     window.scrollTo(0.0);
@@ -44,7 +43,7 @@ function Landing() {
       <div>
         <div onClick={display_modal} className="login__title">
           <p>
-            ¿Ya tienes una cuenta o deseas 
+            ¿Ya tienes una cuenta o deseas
             <a onClick={display_modal}>
               {" "} registrarte
             </a>
@@ -57,7 +56,6 @@ function Landing() {
         <p>©️ WellHome Copyright 2024</p>
         <p>Desarrollado por Castrum Gestión y Servicios SAC</p>
       </div>
-      {registerModal && <Register setRegisterModal={setRegisterModal} />}
     </div>
   );
 }

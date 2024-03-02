@@ -3,7 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import logo from '../../../assets/icons/WellHomeLogo01.svg'
 import { formValidation } from './formValidation'
 
-function ResidentRegister({ setCurrentPage, currentPage, setPrevPage, prevPage }) {
+function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage, prevPage, message }) {
     const [isACondominiumOwner, setIsACondominiumOwner] = useState(currentPage === 'owner_inquilino' || currentPage === 'owner_propietario');
     const [captchaValue, setCaptchaValue] = useState(null);
     const [form_completed, setForm_completed] = useState(false);
@@ -71,7 +71,7 @@ function ResidentRegister({ setCurrentPage, currentPage, setPrevPage, prevPage }
         e.preventDefault();
         if (form_completed) {
             if (captchaValue) {
-                alert('Se envía el formulario al back');
+                alert(`Se envía el formulario del ${countType} al back`);
             }
             else {
                 alert('Por favor, resuelve el Captcha.');
@@ -95,7 +95,7 @@ function ResidentRegister({ setCurrentPage, currentPage, setPrevPage, prevPage }
                 <div>
                     <img src={logo} alt="" />
                 </div>
-                <p className='register_opacity_appear'>Complete los campos</p>
+                <p className='register_opacity_appear'>{message ? message : 'Complete los campos'}</p>
             </section>
             <form action="#" method="post" className="residentRegister__form register_opacity_appear">
                 <div className="register__inputBox">

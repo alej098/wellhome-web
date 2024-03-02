@@ -13,7 +13,7 @@ function Register({ setRegisterModal }) {
     const navigate = useNavigate();
 
     function close_modal() {
-        setRegisterModal(false);
+        navigate('/');
     }
 
     return (
@@ -27,12 +27,12 @@ function Register({ setRegisterModal }) {
 
                     {/* Residentes/Inquilinos */}
                     {currentPage === 'token_page' && <ResidentToken setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
-                    {(currentPage === 'inquilino' || currentPage === 'propietario') && <ResidentRegister setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
+                    {(currentPage === 'inquilino' || currentPage === 'propietario') && <ResidentRegister countType='resident' setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
 
                     {/* Condominio */}
                     {(currentPage === 'condominium') && <CondoRegister setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
                     {(currentPage === 'owner_register') && <Owner_register setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
-                    {(currentPage === 'owner_inquilino' || currentPage === 'owner_propietario') && <ResidentRegister setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
+                    {(currentPage === 'owner_inquilino' || currentPage === 'owner_propietario') && <ResidentRegister countType='owner' message='Complete los datos para generar sus credenciales de administración' setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
                 </div>
             </div>
         </div>
