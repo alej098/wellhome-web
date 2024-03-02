@@ -112,7 +112,7 @@ const Main_navBar = () => {
             {isMobileMenuVisible ? (
               <li>
                 <a
-                href="/"
+                href="/devs"
                   onClick={() => {
                     isMobileMenuVisible && toggleMobileMenu();
                   }}
