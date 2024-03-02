@@ -5,6 +5,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 //Imports Main
 import Landing from "./views/landing";
 import Home from "./views/main/home";
+import Register from './Components/Register/Register'
 import Developers from "./views/main/developers";
 
 //Imports Condo
@@ -15,6 +16,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
+        <Route path='/register' element={<Register />} />
         <Route path="/devs" element={<Developers />} />
       </Routes>
     </div>
