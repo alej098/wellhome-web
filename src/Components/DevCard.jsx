@@ -3,7 +3,7 @@ const DevCard = ({ nombre, imagen, github, linkedin, rol }) => {
     <div className="dev_card">
       {nombre === "Pablo Figueroa" && <div className="yellow"></div>}
       {nombre === "Franco Famulari" && <div className="blue"></div>}
-      {nombre === "Pierre Alcazar" && <div className="green"></div>}
+      {nombre === "Pierre Alcázar" && <div className="green"></div>}
       {nombre === "Alejandro Becerra" && <div className="red"></div>}
       {nombre === "Luca Bruzzone" && <div className="violet"></div>}
       <img className="dev_img" src={imagen} alt={nombre} />

@@ -4,9 +4,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 //Imports Main
 import Landing from "./views/landing";
-import Home from "./views/main/home";
+import Home from "./views/home";
 import Register from './Components/Register/Register'
-import Developers from "./views/main/developers";
+import Developers from "./views/developers";
 
 //Imports Condo
 
