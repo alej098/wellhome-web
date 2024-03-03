@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import wellHomeSmallLogo from "../assets/WellHomeLogo04.svg";
+import wellHomeSmallLogo from "../assets/WellHomeLogo07.svg";
 import wellHomeLongLogo from "../assets/WellHomeLogo05.svg";
 import menuLogo from "../assets/icons/menu.svg";
 import Register from "./Register/Register";
