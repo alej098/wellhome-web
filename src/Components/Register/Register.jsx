@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import GeneralRegister from './Components/GeneralRegister'
-import ResidentRegister from './Components/ResidentRegister'
-import ResidentToken from './Components/ResidentToken'
+import GeneralRegister from './Components/GeneralRegister';
+import ResidentRegister from './Components/ResidentRegister';
+import ResidentToken from './Components/ResidentToken';
 import CondoRegister from './Components/CondoRegister';
 import Owner_register from './Components/Owner_register';
-import imgClose from '../../assets/icons/circle-xmark-regular.svg'
+import imgClose from '../../assets/icons/circle-xmark-regular.svg';
 import { useNavigate } from 'react-router-dom';
 
 function Register({ setRegisterModal }) {

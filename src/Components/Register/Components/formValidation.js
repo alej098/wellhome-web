@@ -1,24 +1,45 @@
 export function formValidation(form) {
     let errors = {}
+    //CONDOMINIO
     if (!form.name || !form.name.trim().length) {
         errors = { ...errors, name: 'Campo incompleto' }
     }
-    if (!form.lastname || !form.lastname.trim().length) {
-        errors = { ...errors, lastname: 'Campo incompleto' }
+    if (!form.country || !form.country.trim().length) {
+        errors = { ...errors, country: 'Campo incompleto' }
     }
-    if (!form.dni || !form.dni.trim().length) {
-        errors = { ...errors, dni: 'Campo incompleto' }
+    if (!form.state || !form.state.trim().length) {
+        errors = { ...errors, state: 'Campo incompleto' }
+    }
+    if (!form.city || !form.city.trim().length) {
+        errors = { ...errors, city: 'Campo incompleto' }
+    }
+    if (!form.district || !form.district.trim().length) {
+        errors = { ...errors, district: 'Campo incompleto' }
     }
     if (!form.phone || !form.phone.trim().length) {
         errors = { ...errors, phone: 'Campo incompleto' }
     }
-    if (!form.email || !form.email.trim().length) {
-        errors = { ...errors, email: 'Campo incompleto' }
+
+    //USUARIO
+    if (!form.foreName || !form.foreName.trim().length) {
+        errors = { ...errors, foreName: 'Campo incompleto' }
     }
-    if (form.email || form.email.trim().length) {
+    if (!form.lastName || !form.lastName.trim().length) {
+        errors = { ...errors, lastName: 'Campo incompleto' }
+    }
+    if (!form.dni || !form.dni.trim().length) {
+        errors = { ...errors, dni: 'Campo incompleto' }
+    }
+    if (!form.ownerPhone || !form.ownerPhone.trim().length) {
+        errors = { ...errors, ownerPhone: 'Campo incompleto' }
+    }
+    if (!form.ownerEmail || !form.ownerEmail.trim().length) {
+        errors = { ...errors, ownerEmail: 'Campo incompleto' }
+    }
+    if (form.ownerEmail || form.ownerEmail.trim().length) {
         const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!regex.test(form.email)) {
-            errors = { ...errors, email: 'Correo inválido' }
+        if (!regex.test(form.ownerEmail)) {
+            errors = { ...errors, ownerEmail: 'Correo inválido' }
         }
     }
     if (!form.password || !form.password.trim().length) {
@@ -58,17 +79,4 @@ export function password_validation(password) {
         }
     }
     return password_regex;
-}
-
-export function validationCondo(params) {
-    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    const errors = {
-        name: params?.name?.trim().length > 0,
-        country: params?.country,
-        state: params?.state?.trim().length > 0,
-        district: params?.district?.trim().length > 0,
-        city: params?.city?.trim().length > 0,
-        phone: params?.phone?.trim().length > 0,
-    }
-    return errors;
 }
