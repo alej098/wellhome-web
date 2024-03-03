@@ -4,12 +4,17 @@
     align-items: center;
 }
 .grid_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; 
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Cambia el mínimo a 320px */
+    // grid-template-rows: repeat(2, auto); /* Define 2 filas automáticas */
+    // gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
 }
 .dev_card {
-    width: 450px;
+    min-width: 300px;
     display: flex;
     background-color:#fff;
     gap: 20px;
@@ -44,49 +49,58 @@
 }
 .dev_img{
     position: relative;
-    width: 12rem;
-    height:12rem;
+    width: 8rem;    
+    height:8rem;
     filter: grayscale(100%);
     z-index: 10;
     object-fit: cover;
+    border-radius: 5px;
 }
 .dev_img:hover{
     filter: grayscale(0%);
 }
 .yellow{
     position: absolute;
-    width: 12rem;
-    height:12rem;
+    width: 8rem;
+    height:8rem;
     background-color: #fbdc13;
     z-index: 1;
+    border-radius: 5px;
 }
 .blue{
     position: absolute;
-    width: 12rem;
-    height:12rem;
+    width: 8rem;
+    height:8rem;
     background-color: #4076b5;
     z-index: 1;
+    border-radius: 5px;
+
 }
 .green{
     position: absolute;
-    width: 12rem;
-    height:12rem;
+    width: 8rem;
+    height:8rem;
     background-color: #3c9075;
     z-index: 1;
+    border-radius: 5px;
 }
 .red{
     position: absolute;
-    width: 12rem;
-    height:12rem;
+    width: 8rem;
+    height:8rem;
     background-color: #aa3c3c;
     z-index: 1;
+    border-radius: 5px;
+
 }
 .violet{
     position: absolute;
-    width: 12rem;
-    height:12rem;
+    width: 8rem;
+    height:8rem;
     background-color: #4b264b;
     z-index: 1;
+    border-radius: 5px;
+
 }
 .dev_links{
     display: flex;
@@ -107,14 +121,14 @@
 .github:hover{
     filter: grayscale(0%);
 }
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    }
-}
+// @media (max-width: 992px) {
+//     .grid_container {
+//         grid-template-columns: repeat(2, minmax(320px, 1fr)); 
+//     }
+// }
 
-@media (max-width: 576px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    }
-}
+// @media (max-width: 576px) {
+//     .grid_container {
+//         grid-template-columns: minmax(320px, 1fr); 
+//     }
+// }
