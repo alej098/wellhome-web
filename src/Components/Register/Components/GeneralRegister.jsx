@@ -1,4 +1,4 @@
-import logo from '../../../assets/icons/WellHomeLogo01.svg'
+import logo from '../../../assets/WellHomeLogo07.svg'
 import resident from '../../../assets/icons/residente2.png'
 import condominium from '../../../assets/icons/condominium.png'
 import { useState } from 'react';
@@ -7,11 +7,11 @@ function GeneralRegister({ currentPage, setCurrentPage, setPrevPage }) {
     const [userType, setUserType] = useState('token_page');
 
     function next_page() {
-        setPrevPage('general');
+        setPrevPage(currentPage);
         if (userType) {
             setCurrentPage(userType);
         }
-        setPrevPage(currentPage);
+        // setPrevPage(currentPage);
     }
 
     function handle_usertype(e) {
@@ -24,7 +24,7 @@ function GeneralRegister({ currentPage, setCurrentPage, setPrevPage }) {
                 <div>
                     <img src={logo} alt="" />
                 </div>
-                <p>Crea una cuenta como residente o dueño de un condominio</p>
+                <p>Crea tu cuenta como residente <br /> o registra tu Condominio <br />para adquirir la App</p>
             </section>
             <section className='userRegister_section2'>
                 <div className='register_scale_appear'>

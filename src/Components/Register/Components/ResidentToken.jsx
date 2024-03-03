@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import logo from '../../../assets/icons/WellHomeLogo01.svg'
+import logo from '../../../assets/WellHomeLogo07.svg'
 import place_img from '../../../assets/icons/construccion.png'
 import rent from '../../../assets/icons/alquilar.png'
 import owner from '../../../assets/icons/dueno.png'
 import check from '../../../assets/icons/marca-de-verificacion.png'
 
 function ResidentToken({ currentPage, setCurrentPage, setPrevPage, prevPage }) {
-    const token_prueba = 'ABC123-DEF456-GHI789';
+    const token_prueba = 'ABC123-DEF456-GHI789'; 
     const place = {
-        place: 'Edificio Montemar',
-        apartment: '133',
+        place: 'Edificio Montemar', //get property
+        apartment: '133',           
         img: place_img
     };
     const [tokenInput, setTokenInput] = useState(null);
@@ -44,7 +44,7 @@ function ResidentToken({ currentPage, setCurrentPage, setPrevPage, prevPage }) {
                     setInvalidToken(true);
                 }
                 setLoading(false);
-            }, 3000);
+            }, 1100);
         }
         else {
             setTokenInput('');

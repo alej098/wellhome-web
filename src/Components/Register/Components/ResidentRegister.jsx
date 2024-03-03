@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
-import logo from '../../../assets/icons/WellHomeLogo01.svg'
+import logo from '../../../assets/WellHomeLogo07.svg'
 import { formValidation } from './formValidation'
 
 function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage, prevPage, message }) {
