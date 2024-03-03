@@ -1,8 +1,8 @@
 import React from "react";
 
-import Main_navBar from "../../Components/Main_NavBar";
-import Main_Footer from "../../Components/Main_Footer";
-import video from "../../assets/icons/video.png";
+import Main_navBar from "../Components/Main_NavBar";
+import Main_Footer from "../Components/Main_Footer";
+import video from "../assets/icons/video.png";
 import {
   FcDataRecovery,
   FcEngineering,
@@ -13,7 +13,7 @@ import {
   FcCommandLine,
   FcMindMap,
 } from "react-icons/fc";
-import Faqs from "../../Components/Register/Components/Faqs";
+import Faqs from "../Components/Faqs";
 
 const faqs = [
   {

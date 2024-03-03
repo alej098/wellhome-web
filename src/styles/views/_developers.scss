@@ -36,10 +36,19 @@
     font-weight: 400;
 }
 .dev_title{
-    font-size: 3rem;
+    font-size: $font-bigger;
     margin-top: 30px;
     margin-bottom: 70px;
     width: 100%;
+}
+.dev_logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 250px;
+        height: auto;
+    }
 }
 .flex_title{
     margin-top: 20px;
@@ -80,7 +89,7 @@
     position: absolute;
     width: 8rem;
     height:8rem;
-    background-color: #3c9075;
+    background-color: #169135;
     z-index: 1;
     border-radius: 5px;
 }
