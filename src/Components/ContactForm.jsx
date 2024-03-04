@@ -53,17 +53,20 @@ const customOption = ({ data, innerProps, innerRef, isFocused }) => (
   </div>
 );
 const ContactForm = () => {
+
+  const [messageSent, setMessageSent] = useState(false);
   const [formData, setFormData] = useState({
-    nombre: "",
-    apellidos: "",
-    correo: "",
-    celular: "",
-    mensaje: "",
+    foreName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
     aceptoContacto: false,
-    pais: "",
+    country: "",
   });
   const [countrySelected, setCountrySelected] = useState(false);
-  const handleInputChange = (e) => {
+  
+  const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
     if (name === "celular" && countrySelected) {
@@ -133,33 +136,33 @@ const ContactForm = () => {
     <div className="contactForm__container">
       <form onSubmit={handleSubmit}>
         <div className="contactForm__container__inputGroup">
-          <label htmlFor="nombre">Nombre:</label>
+          <label htmlFor="foreName">Nombre:</label>
           <input
             type="text"
-            id="nombre"
-            name="nombre"
+            id="foreName"
+            name="foreName"
             value={formData.nombre}
-            onChange={handleInputChange}
+            onChange={handleChange}
             required
           />
 
-          <label htmlFor="apellidos">Apellidos:</label>
+          <label htmlFor="lastName">Apellidos:</label>
           <input
             type="text"
-            id="apellidos"
-            name="apellidos"
+            id="lastName"
+            name="lastName"
             value={formData.apellidos}
-            onChange={handleInputChange}
+            onChange={handleChange}
             required
           />
 
-          <label htmlFor="correo">Correo Electrónico:</label>
+          <label htmlFor="email">Correo Electrónico:</label>
           <input
             type="email"
-            id="correo"
-            name="correo"
+            id="email"
+            name="email"
             value={formData.correo}
-            onChange={handleInputChange}
+            onChange={handleChange}
             required
           />
 
@@ -182,7 +185,7 @@ const ContactForm = () => {
               id="celular"
               name="celular"
               value={formData.celular}
-              onChange={handleInputChange}
+              onChange={handleChange}
               required
               readOnly={countrySelected}
             />
@@ -196,12 +199,12 @@ const ContactForm = () => {
             onChange={handleSubjectChange}
             getOptionLabel={(option) => option.label}
           />
-          <label htmlFor="mensaje">Mensaje:</label>
+          <label htmlFor="message">Mensaje:</label>
           <textarea
-            id="mensaje"
-            name="mensaje"
+            id="message"
+            name="message"
             value={formData.mensaje}
-            onChange={handleInputChange}
+            onChange={handleChange}
             required
           />
         </div>
@@ -212,7 +215,7 @@ const ContactForm = () => {
               type="checkbox"
               name="aceptoContacto"
               checked={formData.aceptoContacto}
-              onChange={handleInputChange}
+              onChange={handleChange}
             />
             Acepto que un asesor de WellHome se ponga en contacto conmigo
           </label>

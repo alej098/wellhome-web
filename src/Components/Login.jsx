@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {ToastContainer, toast} from "react-toastify";
 import { postLoginForm } from "../utils/apiRequest";
+import 'react-toastify/dist/ReactToastify.css';
 import imgClose from "../assets/icons/circle-xmark-regular.svg";
 
 const Login = ({setLoginModal}) => {
@@ -33,13 +35,8 @@ const Login = ({setLoginModal}) => {
       navigate("/working");
     } catch (error) {
       console.error("Fallo el proceso de Login", error);
-
-      if (error.message) {
-        setError(error.message);
-      } else {
-          setError("Ocurrió un error durante el inicio de sesión.");
-        }
-      
+      setError("Ocurrió un error durante el inicio de sesión.");
+      toast.error("Error al iniciar sesión. Por favor, verifica tu usuario y contraseña.")
     }
   };
 
@@ -48,7 +45,16 @@ const Login = ({setLoginModal}) => {
       {setLoginModal && <div onClick={close_modal} className="login__container__close__icon">
         <img src={imgClose} alt="" />
       </div>}
-
+      <ToastContainer 
+        position="center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick = {true}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}/>
       <form action="#" method="post" className="login__form">
 
         <div className="input__group">
@@ -81,6 +87,7 @@ const Login = ({setLoginModal}) => {
           </button>
         </div>
       </form>
+
     </div>
   );
 };
