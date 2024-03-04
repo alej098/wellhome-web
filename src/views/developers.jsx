@@ -1,8 +1,8 @@
 import DevCard from "../Components/DevCard";
 import Pablo from "../assets/icons/devs/pablo.png";
 import Franco from "../assets/icons/devs/Franco.png";
-import Pierre from "../assets/icons/devs/pierre_preview_rev_1.png";
-import Alejandro from "../assets/icons/devs/alejandro2.png";
+import Pierre from "../assets/icons/devs/Pierre_preview_rev_1.png";
+import Alejandro from "../assets/icons/devs/Alejandro2.png";
 import Luca from "../assets/icons/devs/Luca2.png";
 import wellhomelogo from "../assets/WellHomeLong.png";
 import { Link } from "react-router-dom";
