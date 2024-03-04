@@ -7,6 +7,7 @@ import Landing from "./views/landing";
 import Home from "./views/home";
 import Register from './Components/Register/Register'
 import Developers from "./views/developers";
+import Working from "./views/working";
 
 //Imports Condo
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path='/register' element={<Register />} />
         <Route path="/devs" element={<Developers />} />
+        <Route path="/working" element={<Working />} />
       </Routes>
     </div>
   );
