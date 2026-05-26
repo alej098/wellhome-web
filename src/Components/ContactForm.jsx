@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Select from "react-select";
+import axios from "axios";
 import arFlag from "../assets/icons/ar.svg";
 import clFlag from "../assets/icons/cl.svg";
 import peFlag from "../assets/icons/pe.svg";
@@ -89,13 +90,24 @@ const ContactForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { nombre, apellidos, correo, celular, mensaje, aceptoContacto } =
-      formData;
-    if (nombre && apellidos && correo && celular && mensaje && aceptoContacto) {
-      console.log("Formulario enviado:", formData);
+    const { foreName, lastName, email, phone, message, aceptoContacto } = formData;
+    if (foreName && lastName && email && phone && message && aceptoContacto) {
+      const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'http://localhost:3001/';
+      try {
+        await axios.post(`${apiUrl}contactform`, {
+          foreName,
+          lastName,
+          email,
+          phone,
+          message,
+        });
+        setMessageSent(true);
+      } catch (err) {
+        alert("Error al enviar el formulario. Intenta de nuevo.");
+      }
     } else {
       alert(
         "Por favor, completa todos los campos y marca la casilla de aceptación."
@@ -104,8 +116,8 @@ const ContactForm = () => {
   };
 
   const isFormComplete = () => {
-    const { nombre, apellidos, correo, celular, mensaje, aceptoContacto } = formData;
-    return nombre && apellidos && correo && celular && mensaje && aceptoContacto;
+    const { foreName, lastName, email, phone, message, aceptoContacto } = formData;
+    return foreName && lastName && email && phone && message && aceptoContacto;
   };
 
   const handleCountryChange = (selectedOption) => {

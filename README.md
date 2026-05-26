@@ -1,8 +1,17 @@
-# React + Vite
+# WellHome Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Public-facing website for WellHome, a condominium management platform. Includes marketing landing page, pricing, FAQ, multi-step registration flow, and user login.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React 18 + Vite 5, Redux, React Router 6, SASS, Axios
+
+## Quick Start
+
+```bash
+cp .env.example .env
+npm install
+npm run dev
+```
+
+Set `VITE_REACT_APP_API_URL` in `.env` to point to the API server.
