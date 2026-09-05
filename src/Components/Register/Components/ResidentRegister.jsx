@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
+import { useNavigate } from 'react-router-dom';
 import logo from '../../../assets/WellHomeLogo07.svg'
 import { formValidation } from './formValidation'
+import { postResidentForm, postSignupForm } from '../../../utils/apiRequest.js'
 
 function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage, prevPage, message }) {
     const [isACondominiumOwner, setIsACondominiumOwner] = useState(currentPage === 'owner_inquilino' || currentPage === 'owner_propietario');
     const [captchaValue, setCaptchaValue] = useState(null);
     const [form_completed, setForm_completed] = useState(false);
+    const navigate = useNavigate();
     const [errors, setErrors] = useState({
-        name: '',
-        lastname: '',
+        foreName: '',
+        lastName: '',
         dni: '',
-        phone: '',
-        email: '',
+        ownerPhone: '',
+        ownerEmail: '',
         password: '',
         repeat_password: '',
         checkbox_confirm: isACondominiumOwner
@@ -23,11 +26,11 @@ function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage,
         numbers: false,
     });
     const [form, setForm] = useState({
-        name: '',
-        lastname: '',
+        foreName: '',
+        lastName: '',
         dni: '',
-        phone: '',
-        email: '',
+        ownerPhone: '',
+        ownerEmail: '',
         password: '',
         repeat_password: '',
         checkbox_confirm: isACondominiumOwner
@@ -49,9 +52,10 @@ function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage,
             // si no hay errores y la contraseña cumple con los requisitos, seteamos el estado "form" en true.
             setForm_completed(true);
             setErrors({
-                name: '',
-                phone: '',
-                email: '',
+                foreName: '',
+                lastName: '',
+                ownerPhone: '',
+                ownerEmail: '',
                 password: '',
                 repeat_password: '',
                 checkbox_confirm: false
@@ -69,19 +73,47 @@ function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage,
 
     function submitForm(e) {
         e.preventDefault();
-        if (form_completed) {
-            if (captchaValue) {
-                alert(`Se envía el formulario del ${countType} al back`);
-            }
-            else {
-                alert('Por favor, resuelve el Captcha.');
-            }
+        if (!form_completed) return;
+        if (!captchaValue) {
+            alert('Por favor, resuelve el Captcha.');
+            return;
         }
-        setPrevPage(currentPage);
+        const userType = (currentPage === 'propietario' || currentPage === 'owner_propietario') ? 'propietario' : 'inquilino';
+        const userTypeId = userType === 'propietario' ? 5 : 6;
+        const payload = {
+            foreName: form.foreName,
+            lastName: form.lastName,
+            dni: form.dni,
+            phone: form.ownerPhone,
+            email: form.ownerEmail,
+            password: form.password,
+            userType,
+            checkbox_confirm: form.checkbox_confirm
+        };
+        const signupPayload = {
+            PropertyId: ['PE-AQP-WH-0001'],
+            UserTypeId: [userTypeId],
+            dni: form.dni,
+            foreName: form.foreName,
+            lastName: form.lastName,
+            phone: form.ownerPhone,
+            email: form.ownerEmail,
+            password: form.password,
+            MainPlaceId: 'PE-AQP-00000'
+        };
+        Promise.all([postResidentForm(payload), postSignupForm(signupPayload)])
+            .then((data) => {
+                alert('¡Tu registro se envió correctamente!');
+                navigate('/home');
+            })
+            .catch((error) => {
+                console.error('Error al registrar residente', error);
+                alert('Ocurrió un error al registrarte. Inténtalo de nuevo.');
+            });
     }
 
     function prev_page() {
-        setCurrentPage(prevPage);
+        setCurrentPage('general');
         setPrevPage(currentPage);
     }
 
@@ -100,13 +132,13 @@ function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage,
             <form action="#" method="post" className="residentRegister__form register_opacity_appear">
                 <div className="register__inputBox">
                     <label htmlFor="">Nombre<span>*</span></label>
-                    <input onChange={input_change} id="name" type="text" className={`${errors.name ? 'errorInput' : ''}`} />
-                    {errors.name && <p className='errors'>{errors.name}</p>}
+                    <input onChange={input_change} id="foreName" type="text" className={`${errors.foreName ? 'errorInput' : ''}`} />
+                    {errors.foreName && <p className='errors'>{errors.foreName}</p>}
                 </div>
                 <div className="register__inputBox">
                     <label htmlFor="">Apellido<span>*</span></label>
-                    <input onChange={input_change} id="lastname" type="text" className={`${errors.lastname ? 'errorInput' : ''}`} />
-                    {errors.lastname && <p className='errors'>{errors.lastname}</p>}
+                    <input onChange={input_change} id="lastName" type="text" className={`${errors.lastName ? 'errorInput' : ''}`} />
+                    {errors.lastName && <p className='errors'>{errors.lastName}</p>}
                 </div>
                 <div className="register__select">
                     <select onChange={input_change} defaultValue='dni' id="identification" name="Identificación" className="register__inputBox">
@@ -118,13 +150,13 @@ function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage,
                 </div>
                 <div className="register__inputBox">
                     <label htmlFor="">Teléfono<span>*</span></label>
-                    <input onChange={input_change} id="phone" type="text" className={`${errors.phone ? 'errorInput' : ''}`} />
-                    {errors.phone && <p className='errors'>{errors.phone}</p>}
+                    <input onChange={input_change} id="ownerPhone" type="text" className={`${errors.ownerPhone ? 'errorInput' : ''}`} />
+                    {errors.ownerPhone && <p className='errors'>{errors.ownerPhone}</p>}
                 </div>
                 <div className="register__inputBox">
                     <label htmlFor="">Email<span>*</span></label>
-                    <input onChange={input_change} id="email" type="text" className={`${errors.email ? 'errorInput' : ''}`} />
-                    {errors.email && <p className='errors'>{errors.email}</p>}
+                    <input onChange={input_change} id="ownerEmail" type="text" className={`${errors.ownerEmail ? 'errorInput' : ''}`} />
+                    {errors.ownerEmail && <p className='errors'>{errors.ownerEmail}</p>}
                 </div>
                 <div className="register__inputBox">
                     <label htmlFor="">Contraseña<span>*</span></label>

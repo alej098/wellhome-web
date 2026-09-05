@@ -1,26 +1,28 @@
 export function formValidation(form) {
     let errors = {}
-    //CONDOMINIO
-    if (!form.name || !form.name.trim().length) {
-        errors = { ...errors, name: 'Campo incompleto' }
-    }
-    if (!form.country || !form.country.trim().length) {
-        errors = { ...errors, country: 'Campo incompleto' }
-    }
-    if (!form.state || !form.state.trim().length) {
-        errors = { ...errors, state: 'Campo incompleto' }
-    }
-    if (!form.city || !form.city.trim().length) {
-        errors = { ...errors, city: 'Campo incompleto' }
-    }
-    if (!form.district || !form.district.trim().length) {
-        errors = { ...errors, district: 'Campo incompleto' }
-    }
-    if (!form.phone || !form.phone.trim().length) {
-        errors = { ...errors, phone: 'Campo incompleto' }
+    //CONDOMINIO (solo si el formulario es de condominio)
+    if (form.country !== undefined) {
+        if (!form.name || !form.name.trim().length) {
+            errors = { ...errors, name: 'Campo incompleto' }
+        }
+        if (!form.country || !form.country.trim().length) {
+            errors = { ...errors, country: 'Campo incompleto' }
+        }
+        if (!form.state || !form.state.trim().length) {
+            errors = { ...errors, state: 'Campo incompleto' }
+        }
+        if (!form.city || !form.city.trim().length) {
+            errors = { ...errors, city: 'Campo incompleto' }
+        }
+        if (!form.district || !form.district.trim().length) {
+            errors = { ...errors, district: 'Campo incompleto' }
+        }
+        if (!form.phone || !form.phone.trim().length) {
+            errors = { ...errors, phone: 'Campo incompleto' }
+        }
     }
 
-    //USUARIO
+    //USUARIO / RESIDENTE
     if (!form.foreName || !form.foreName.trim().length) {
         errors = { ...errors, foreName: 'Campo incompleto' }
     }
@@ -33,14 +35,14 @@ export function formValidation(form) {
     if (!form.ownerPhone || !form.ownerPhone.trim().length) {
         errors = { ...errors, ownerPhone: 'Campo incompleto' }
     }
-    if (!form.ownerEmail || !form.ownerEmail.trim().length) {
-        errors = { ...errors, ownerEmail: 'Campo incompleto' }
-    }
-    if (form.ownerEmail || form.ownerEmail.trim().length) {
+    if (form.ownerEmail) {
         const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         if (!regex.test(form.ownerEmail)) {
             errors = { ...errors, ownerEmail: 'Correo inválido' }
         }
+    }
+    if (!form.ownerEmail || !form.ownerEmail.trim().length) {
+        errors = { ...errors, ownerEmail: 'Campo incompleto' }
     }
     if (!form.password || !form.password.trim().length) {
         errors = { ...errors, password: 'Campo incompleto' }

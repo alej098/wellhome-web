@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 import wellHomeSmallLogo from "../assets/WellHomeLogo07.svg";
 import wellHomeLongLogo from "../assets/WellHomeLogo05.svg";
 import menuLogo from "../assets/icons/menu.svg";
 import Register from "./Register/Register";
-import Login from "./Login";
 // import Main_NavBar_MobileMenu from './Main_NavBar_MobileMenu'
 
 const Main_navBar = () => {
   const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
   const [registerModal, setRegisterModal] = useState(false);
-  const [loginModal, setLoginModal] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    sessionStorage.clear();
+    navigate("/");
+  };
 
   const toggleMobileMenu = () => {
     setMobileMenuVisible(!isMobileMenuVisible);
@@ -18,10 +24,6 @@ const Main_navBar = () => {
 
   const display_modalRegister = () => {
     setRegisterModal(true);
-  };
-
-  const display_modalLogin = () => {
-    setLoginModal(true);
   };
 
   return (
@@ -109,6 +111,38 @@ const Main_navBar = () => {
                 Contacto
               </ScrollLink>
             </li>
+            <li>
+              <a href="/avisos" onClick={isMobileMenuVisible ? toggleMobileMenu : undefined}>
+                Avisos
+              </a>
+            </li>
+            <li>
+              <a href="/reglas" onClick={isMobileMenuVisible ? toggleMobileMenu : undefined}>
+                Reglas
+              </a>
+            </li>
+            <li>
+              <a href="/instrucciones" onClick={isMobileMenuVisible ? toggleMobileMenu : undefined}>
+                Instrucciones
+              </a>
+            </li>
+            <li>
+              <a href="/registrar-condominio" onClick={isMobileMenuVisible ? toggleMobileMenu : undefined}>
+                Registrar condominio
+              </a>
+            </li>
+            <li>
+              <a
+                href="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLogout();
+                  isMobileMenuVisible && toggleMobileMenu();
+                }}
+              >
+                Cerrar sesión
+              </a>
+            </li>
             {isMobileMenuVisible ? (
               <li>
                 <a
@@ -137,21 +171,10 @@ const Main_navBar = () => {
             ) : (
               ""
             )}
-            <li>
-              <a  onClick={() => {
-                    display_modalLogin();
-                    isMobileMenuVisible && toggleMobileMenu();
-                  }}>Ingresar</a>
-            </li>
           </ul>
         </div>
       </div>
       {registerModal && <Register setRegisterModal={setRegisterModal} />}
-      {loginModal && <div className="login__popup">
-        <div>
-          <Login setLoginModal={setLoginModal} />
-        </div>
-      </div>}
     </div>
   );
 };

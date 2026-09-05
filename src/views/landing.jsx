@@ -32,7 +32,7 @@ function Landing() {
         </div>
         <div className="landing__buttons">
           <button className="button__navigate">
-            <Link to="/home" onClick={handleLoad}>
+            <Link to="/info" onClick={handleLoad}>
               ¿Quiéres saber más?
               <br />
               ¡Ingresa Aquí!

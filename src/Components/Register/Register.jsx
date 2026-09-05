@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import GeneralRegister from './Components/GeneralRegister';
+import ResidentType from './Components/ResidentType';
 import ResidentRegister from './Components/ResidentRegister';
-import ResidentToken from './Components/ResidentToken';
 import CondoRegister from './Components/CondoRegister';
 import Owner_register from './Components/Owner_register';
 import imgClose from '../../assets/icons/circle-xmark-regular.svg';
@@ -26,7 +26,7 @@ function Register({ setRegisterModal }) {
                     {currentPage === 'general' && <GeneralRegister setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
 
                     {/* Residentes/Inquilinos */}
-                    {currentPage === 'token_page' && <ResidentToken setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
+                    {currentPage === 'resident_type' && <ResidentType setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
                     {(currentPage === 'inquilino' || currentPage === 'propietario') && <ResidentRegister countType='resident' setCurrentPage={setCurrentPage} currentPage={currentPage} setPrevPage={setPrevPage} prevPage={prevPage} />}
 
                     {/* Condominio */}

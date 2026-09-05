@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
+import { useNavigate } from 'react-router-dom';
 import logo from '../../../assets/WellHomeLogo07.svg';
 import { formValidation } from './formValidation.js';
-import { postPreRegisterForm } from '../../../utils/apiRequest.js';
+import { postPreRegisterForm, postSignupForm } from '../../../utils/apiRequest.js';
 
 function CondoRegister({ 
     setCurrentPage, 
     currentPage, 
     setPrevPage, 
-    prevPage }) 
+    prevPage,
+    onBack }) 
     {
         const [isACondominiumOwner, setIsACondominiumOwner] = useState(false);
         const [captchaValue, setCaptchaValue] = useState(null);
         const [form_completed, setForm_completed] = useState(false);
+        const navigate = useNavigate();
 
         const [errors, setErrors] = useState({
             foreName: '',
@@ -96,10 +99,38 @@ function CondoRegister({
 
         const submitForm = (e) => {
             e.preventDefault(); 
-            postPreRegisterForm(form);
+            if (!form_completed) return;
+            if (!captchaValue) {
+                alert('Por favor, resuelve el Captcha.');
+                return;
+            }
+            const signupPayload = {
+                PropertyId: ['PE-AQP-WH-0001'],
+                UserTypeId: [4],
+                dni: form.dni,
+                foreName: form.foreName,
+                lastName: form.lastName,
+                phone: form.ownerPhone,
+                email: form.ownerEmail,
+                password: form.password,
+                MainPlaceId: 'PE-AQP-00000'
+            };
+            Promise.all([postPreRegisterForm(form), postSignupForm(signupPayload)])
+                .then((data) => {
+                    alert('¡Tu condominio se registró correctamente!');
+                    navigate('/home');
+                })
+                .catch((error) => {
+                    console.error('Error al registrar condominio', error);
+                    alert('Ocurrió un error al registrar el condominio. Inténtalo de nuevo.');
+                });
         };
 
         function previousPage() {
+            if (onBack) {
+                onBack();
+                return;
+            }
             setCurrentPage(prevPage);
             setPrevPage(currentPage);
         };

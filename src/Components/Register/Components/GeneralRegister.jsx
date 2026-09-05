@@ -2,16 +2,21 @@ import logo from '../../../assets/WellHomeLogo07.svg'
 import resident from '../../../assets/icons/residente2.png'
 import condominium from '../../../assets/icons/condominium.png'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function GeneralRegister({ currentPage, setCurrentPage, setPrevPage }) {
-    const [userType, setUserType] = useState('token_page');
+    const [userType, setUserType] = useState('resident_type');
+    const navigate = useNavigate();
 
     function next_page() {
+        if (userType === 'condominium') {
+            navigate('/registrar-condominio');
+            return;
+        }
         setPrevPage(currentPage);
         if (userType) {
             setCurrentPage(userType);
         }
-        // setPrevPage(currentPage);
     }
 
     function handle_usertype(e) {
@@ -29,8 +34,8 @@ function GeneralRegister({ currentPage, setCurrentPage, setPrevPage }) {
             <section className='userRegister_section2'>
                 <div className='register_scale_appear'>
                     <p>Residente</p>
-                    <button onClick={handle_usertype} name='token_page' className={`${userType === 'token_page' ? 'register_selected_option' : 'div_off'}`}>
-                        <img name='token_page' src={resident} alt="" />
+                    <button onClick={handle_usertype} name='resident_type' className={`${userType === 'resident_type' ? 'register_selected_option' : 'div_off'}`}>
+                        <img name='resident_type' src={resident} alt="" />
                     </button>
                 </div>
                 <div className='register_scale_appear'>

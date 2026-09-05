@@ -32,7 +32,7 @@ const Login = ({setLoginModal}) => {
       const response = await postLoginForm(user);
       console.log("Ingreso Exitoso", response);
       setUser({ login: '', password: '' });
-      navigate("/working");
+      navigate("/home");
     } catch (error) {
       console.error("Fallo el proceso de Login", error);
       setError("Ocurrió un error durante el inicio de sesión.");
