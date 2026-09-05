@@ -46,7 +46,7 @@ const RegistrarCondominio = () => {
               currentPage="condominium"
               setPrevPage={() => {}}
               prevPage="condominium"
-              onBack={() => navigate("/home")}
+              onBack={() => navigate("/")}
             />
           </div>
         </div>
@@ -97,7 +97,7 @@ const RegistrarCondominio = () => {
             style={{ marginTop: "1.5em", justifyContent: "flex-start" }}
           >
             <button className="button__navigate">
-              <Link to="/home">Volver al inicio</Link>
+              <Link to="/">Volver al inicio</Link>
             </button>
           </div>
         </aside>

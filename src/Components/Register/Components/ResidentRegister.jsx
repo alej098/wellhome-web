@@ -3,7 +3,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate } from 'react-router-dom';
 import logo from '../../../assets/WellHomeLogo07.svg'
 import { formValidation } from './formValidation'
-import { postResidentForm, postSignupForm } from '../../../utils/apiRequest.js'
+import { postResidentForm, postSignupForm, postLoginForm } from '../../../utils/apiRequest.js'
+import { saveSession } from '../../../utils/session.js'
 
 function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage, prevPage, message }) {
     const [isACondominiumOwner, setIsACondominiumOwner] = useState(currentPage === 'owner_inquilino' || currentPage === 'owner_propietario');
@@ -102,7 +103,13 @@ function ResidentRegister({ countType, setCurrentPage, currentPage, setPrevPage,
             MainPlaceId: 'PE-AQP-00000'
         };
         Promise.all([postResidentForm(payload), postSignupForm(signupPayload)])
-            .then((data) => {
+            .then(async () => {
+                try {
+                    const session = await postLoginForm({ login: form.ownerEmail, password: form.password });
+                    saveSession(session.token, session.user);
+                } catch (error) {
+                    console.error('Registro OK, pero el auto-login falló', error);
+                }
                 alert('¡Tu registro se envió correctamente!');
                 navigate('/home');
             })

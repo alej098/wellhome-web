@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Main_navBar from "../Components/Main_NavBar";
 import Main_Footer from "../Components/Main_Footer";
@@ -12,8 +13,79 @@ import {
   FcConferenceCall,
   FcCommandLine,
   FcMindMap,
+  FcHome,
 } from "react-icons/fc";
 import Faqs from "../Components/Faqs";
+import { getSession, getUserRole } from "../utils/session";
+
+const ROLE_HOME = {
+  admin: {
+    cards: [
+      {
+        icon: <FcEngineering />,
+        title: "Administración",
+        text: "Gestiona tu condominio, unidades y pagos de tu comunidad.",
+        to: "/registrar-condominio",
+      },
+      {
+        icon: <FcBullish />,
+        title: "Publicar Avisos",
+        text: "Crea y revisa los avisos que ven tus residentes.",
+        to: "/avisos",
+      },
+      {
+        icon: <FcDataRecovery />,
+        title: "Reglas de convivencia",
+        text: "Administra las normas internas de tu condominio.",
+        to: "/reglas",
+      },
+    ],
+  },
+  propietario: {
+    cards: [
+      {
+        icon: <FcHome />,
+        title: "Mis Unidades",
+        text: "Próximamente: tus unidades y el estado de tus cuotas.",
+        to: null,
+      },
+      {
+        icon: <FcBullish />,
+        title: "Avisos del condominio",
+        text: "Entérate de lo que pasa en tu comunidad.",
+        to: "/avisos",
+      },
+      {
+        icon: <FcDataRecovery />,
+        title: "Reglas de convivencia",
+        text: "Consulta las normas de tu condominio.",
+        to: "/reglas",
+      },
+    ],
+  },
+  inquilino: {
+    cards: [
+      {
+        icon: <FcHome />,
+        title: "Mis Espacios",
+        text: "Próximamente: tu vivienda y tus pagos desde un solo lugar.",
+        to: null,
+      },
+      {
+        icon: <FcBullish />,
+        title: "Avisos",
+        text: "Noticias y avisos de tu condominio.",
+        to: "/avisos",
+      },
+      {
+        icon: <FcDataRecovery />,
+        title: "Guía de residente",
+        text: "Aprende a usar WellHome paso a paso.",
+        to: "/instrucciones",
+      },
+    ],
+  },
+};
 
 const faqs = [
   {
@@ -39,9 +111,46 @@ const faqs = [
 ];
 
 const Home = () => {
+  const { user } = getSession();
+  const role = getUserRole(user);
+  const roleHome = role ? ROLE_HOME[role.key] : null;
+
   return (
     <div className="mainHome__container">
       <Main_navBar />
+      {roleHome && (
+        <section className="mainHome__rolePanel">
+          <div className="mainHome__rolePanel-header">
+            <h1>{role.title}</h1>
+            <span className={`mainHome__rolePanel-badge mainHome__rolePanel-badge--${role.key}`}>
+              {role.label}
+            </span>
+          </div>
+          <p className="mainHome__rolePanel-subtitle">
+            Hola, {user?.foreName} {user?.lastName}
+          </p>
+          <div className="mainHome__rolePanel-cards">
+            {roleHome.cards.map((card, index) => (
+              card.to ? (
+                <Link key={index} to={card.to} className="mainHome__rolePanel-card">
+                  <div className="mainHome__rolePanel-card-icon">{card.icon}</div>
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </Link>
+              ) : (
+                <article
+                  key={index}
+                  className="mainHome__rolePanel-card mainHome__rolePanel-card--info"
+                >
+                  <div className="mainHome__rolePanel-card-icon">{card.icon}</div>
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </article>
+              )
+            ))}
+          </div>
+        </section>
+      )}
       <div className="mainHome__inicio">
         <div className="mainHome__inicio-title" id="mainHome-inicio">
           <h1>

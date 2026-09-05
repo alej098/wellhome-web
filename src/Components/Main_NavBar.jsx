@@ -5,16 +5,17 @@ import wellHomeSmallLogo from "../assets/WellHomeLogo07.svg";
 import wellHomeLongLogo from "../assets/WellHomeLogo05.svg";
 import menuLogo from "../assets/icons/menu.svg";
 import Register from "./Register/Register";
+import { clearSession, getSession } from "../utils/session";
 // import Main_NavBar_MobileMenu from './Main_NavBar_MobileMenu'
 
 const Main_navBar = () => {
   const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
   const [registerModal, setRegisterModal] = useState(false);
   const navigate = useNavigate();
+  const { user } = getSession();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    sessionStorage.clear();
+    clearSession();
     navigate("/");
   };
 
@@ -43,6 +44,9 @@ const Main_navBar = () => {
       </div>
 
       <div className="navBar__container__right">
+        {user && user.foreName && (
+          <span className="navBar__container__right__greeting">Hola, {user.foreName}</span>
+        )}
         <div
           className="navBar__container__right__menuIcon"
           onClick={toggleMobileMenu}

@@ -48,6 +48,18 @@
             display: flex;
             align-items: center;
 
+            &__greeting {
+                font-size: $font-medium;
+                font-weight: 600;
+                color: $color-A;
+                margin-right: 1rem;
+                white-space: nowrap;
+
+                @media screen and (max-width: $bp-medium) {
+                    display: none;
+                }
+            }
+
             &__menuIcon{
                 cursor: pointer;
                 img {

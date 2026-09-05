@@ -8,6 +8,107 @@
         
     }
 
+    &__rolePanel{
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        background: linear-gradient(120deg, $color-A 0%, $color-B 100%);
+        color: $color-white;
+
+        &-header{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            h1{
+                margin: 0;
+                font-size: $font-big;
+            }
+        }
+
+        &-badge{
+            padding: 0.25rem 0.9rem;
+            border-radius: 2rem;
+            font-size: $font-small;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background-color: $color-white;
+            color: $color-A;
+
+            &--admin{
+                background-color: $color-C;
+                color: $color-A;
+            }
+            &--propietario{
+                background-color: $color-G;
+                color: $color-white;
+            }
+            &--inquilino{
+                background-color: $color-D;
+                color: $color-white;
+            }
+        }
+
+        &-subtitle{
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        &-cards{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 1rem;
+        }
+
+        &-card{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: $color-allWhite;
+            color: $color-A;
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+            &:hover{
+                transform: translateY(-3px);
+                box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+            }
+
+            &-icon{
+                font-size: $font-bigger;
+                margin-bottom: 0.5rem;
+            }
+
+            h3{
+                margin: 0 0 0.35rem;
+                font-size: $font-medium;
+            }
+
+            p{
+                margin: 0;
+                font-size: $font-small;
+                color: $color-midBlack;
+            }
+
+            &--info{
+                opacity: 0.9;
+
+                &:hover{
+                    transform: none;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                }
+            }
+        }
+    }
+
 
     &__inicio{
         @extend %mainHome-sections;

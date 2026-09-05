@@ -3,7 +3,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate } from 'react-router-dom';
 import logo from '../../../assets/WellHomeLogo07.svg';
 import { formValidation } from './formValidation.js';
-import { postPreRegisterForm, postSignupForm } from '../../../utils/apiRequest.js';
+import { postPreRegisterForm, postSignupForm, postLoginForm } from '../../../utils/apiRequest.js';
+import { saveSession } from '../../../utils/session.js';
 
 function CondoRegister({ 
     setCurrentPage, 
@@ -116,7 +117,13 @@ function CondoRegister({
                 MainPlaceId: 'PE-AQP-00000'
             };
             Promise.all([postPreRegisterForm(form), postSignupForm(signupPayload)])
-                .then((data) => {
+                .then(async () => {
+                    try {
+                        const session = await postLoginForm({ login: form.ownerEmail, password: form.password });
+                        saveSession(session.token, session.user);
+                    } catch (error) {
+                        console.error('Condominio registrado OK, pero el auto-login falló', error);
+                    }
                     alert('¡Tu condominio se registró correctamente!');
                     navigate('/home');
                 })

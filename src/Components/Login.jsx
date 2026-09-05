@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify";
 import { postLoginForm } from "../utils/apiRequest";
+import { saveSession } from "../utils/session";
 import 'react-toastify/dist/ReactToastify.css';
 import imgClose from "../assets/icons/circle-xmark-regular.svg";
 
@@ -30,6 +31,7 @@ const Login = ({setLoginModal}) => {
 
     try {
       const response = await postLoginForm(user);
+      saveSession(response.token, response.user);
       console.log("Ingreso Exitoso", response);
       setUser({ login: '', password: '' });
       navigate("/home");
